@@ -14,6 +14,9 @@ io.on("connection", (socket) => {
   socket.on("join", (data) => {
     // THE CLIENT SENDS A 'JOIN' EVENT WITH A TENANTID
     socket.join(String(data.tenantId)); // THE CLIENT JOINS A SPECIFIC ROOM BASED ON TENANTID
+
+    // console.log(io.of("/").adapter);
+
     socket.emit("join", { roomId: String(data.tenantId) }); // SENDING A RESPONSE TO CLIENT CONFIRMING THEY JOINED THE ROOM
   });
 });
